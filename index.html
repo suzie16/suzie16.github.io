@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston V&GF Eats - Vegan & Gluten-Free Restaurant Reviews</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900">
+    <nav class="bg-stone-200 text-gray-900 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-serif">Boston V&GF Eats</h1>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-green-800">Home</a>
+                <a href="reviews.html" class="hover:text-green-800">Reviews</a>
+                <a href="about.html" class="hover:text-green-800">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-stone-200 text-gray-900 py-20">
+        <div class="container mx-auto text-center relative">
+            <h2 class="text-5xl font-serif mb-4">Plant-Based Paradise</h2>
+            <p class="text-xl">Discovering Boston's Finest Vegan & Gluten-Free Dining</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto py-12 px-4">
+        <!-- Search and Filter Section -->
+        <div class="bg-stone-200 rounded-lg shadow-lg p-6 mb-8">
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search restaurants, cuisines, or dishes..." 
+                           class="w-full p-4 pl-12 rounded-lg border border-green-800 bg-white/90 focus:ring-2 focus:ring-green-700">
+                    <svg class="w-6 h-6 text-green-800 absolute left-3 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Cuisine Type</label>
+                    <select class="w-full p-2 rounded-md border border-green-800 bg-white focus:ring-green-700">
+                        <option value="">All Cuisines</option>
+                        <option value="american">American</option>
+                        <option value="asian">Asian Fusion</option>
+                        <option value="mediterranean">Mediterranean</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="italian">Italian</option>
+                    </select>
+                </div>
+
+                <!-- Other filters here (same structure as in previous version) -->
+            </div>
+
+            <div class="mt-4 flex justify-between items-center">
+                <div class="space-x-2">
+                    <button class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                        Outdoor Seating ✕
+                    </button>
+                    <button class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                        Takes Reservations ✕
+                    </button>
+                </div>
+                <button class="text-green-800 hover:text-gray-900">
+                    Clear all filters
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Reviews -->
+        <section class="grid md:grid-cols-2 gap-8">
+            <article class="bg-stone-200 p-6 rounded-lg shadow-lg">
+                <img src="images/restaurant1.jpg" alt="Restaurant interior" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">New Review</span>
+                    <span class="text-gray-900">$$ • Asian Fusion • Back Bay</span>
+                </div>
+                <h3 class="text-2xl font-serif mt-2">Sprout & Root Kitchen</h3>
+                <div class="flex items-center my-2">
+                    <span class="text-green-800">★★★★★</span>
+                    <span class="ml-2 text-gray-900">(5/5)</span>
+                </div>
+                <p class="text-gray-900 mb-4">Located in the heart of Back Bay, this charming bistro offers innovative plant-based dishes that are 100% gluten-free. Their mushroom risotto is a must-try!</p>
+                <a href="#" class="text-green-800 hover:text-gray-900">Read full review →</a>
+            </article>
+
+            <!-- More reviews here -->
+        </section>
+    </div>
+
+    <footer class="bg-stone-200 mt-12 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-serif text-xl mb-4">About Boston V&GF Eats</h4>
+                    <p class="text-gray-900">Dedicated to helping you find the best vegan and gluten-free dining experiences in Boston.</p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-4">Quick Links</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-900 hover:text-green-800">Latest Reviews</a></li>
+                            <li><a href="#" class="text-gray-900 hover:text-green-800">Restaurant Map</a></li>
+                            <li><a href="#" class="text-gray-900 hover:text-green-800">Submit a Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-700">
+                <p>© 2024 Boston V&GF Eats. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
