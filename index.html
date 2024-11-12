@@ -7,34 +7,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900">
-    <nav class="bg-stone-200 text-gray-900 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-serif">Boston V&GF Eats</h1>
-            <div class="space-x-4">
-                <a href="#" class="hover:text-green-800">Home</a>
-                <a href="reviews.html" class="hover:text-green-800">Reviews</a>
-                <a href="about.html" class="hover:text-green-800">About</a>
+<body class="bg-stone-50">
+    <nav class="bg-white shadow-sm">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-serif text-stone-800">Boston V&GF Eats</h1>
+            <div class="space-x-6">
+                <a href="#" class="text-stone-600 hover:text-stone-900">Home</a>
+                <a href="reviews.html" class="text-stone-600 hover:text-stone-900">Reviews</a>
+                <a href="about.html" class="text-stone-600 hover:text-stone-900">About</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-stone-200 text-gray-900 py-20">
-        <div class="container mx-auto text-center relative">
-            <h2 class="text-5xl font-serif mb-4">Plant-Based Paradise</h2>
-            <p class="text-xl">Discovering Boston's Finest Vegan & Gluten-Free Dining</p>
+    <header class="bg-[#dcd3c9] py-20">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-4xl md:text-5xl font-serif text-stone-800 mb-4">Plant-Based Paradise</h2>
+            <p class="text-xl text-stone-600">Discovering Boston's Finest Vegan & Gluten-Free Dining</p>
         </div>
     </header>
 
-    <div class="container mx-auto py-12 px-4">
+    <main class="container mx-auto py-12 px-4">
         <!-- Search and Filter Section -->
-        <div class="bg-stone-200 rounded-lg shadow-lg p-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-12">
             <div class="mb-6">
                 <div class="relative">
                     <input type="text" 
                            placeholder="Search restaurants, cuisines, or dishes..." 
-                           class="w-full p-4 pl-12 rounded-lg border border-green-800 bg-white/90 focus:ring-2 focus:ring-green-700">
-                    <svg class="w-6 h-6 text-green-800 absolute left-3 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           class="w-full p-4 pl-12 rounded-lg border border-stone-200 focus:ring-2 focus:ring-stone-200">
+                    <svg class="w-6 h-6 text-stone-400 absolute left-3 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
@@ -42,8 +42,8 @@
 
             <div class="grid md:grid-cols-4 gap-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-900 mb-2">Cuisine Type</label>
-                    <select class="w-full p-2 rounded-md border border-green-800 bg-white focus:ring-green-700">
+                    <label class="block text-sm font-medium text-stone-600 mb-2">Cuisine Type</label>
+                    <select class="w-full p-2 rounded-md border border-stone-200 focus:ring-stone-200">
                         <option value="">All Cuisines</option>
                         <option value="american">American</option>
                         <option value="asian">Asian Fusion</option>
@@ -53,64 +53,144 @@
                     </select>
                 </div>
 
-                <!-- Other filters here (same structure as in previous version) -->
+                <div>
+                    <label class="block text-sm font-medium text-stone-600 mb-2">Neighborhood</label>
+                    <select class="w-full p-2 rounded-md border border-stone-200 focus:ring-stone-200">
+                        <option value="">All Areas</option>
+                        <option value="backbay">Back Bay</option>
+                        <option value="cambridge">Cambridge</option>
+                        <option value="seaport">Seaport</option>
+                        <option value="somerville">Somerville</option>
+                        <option value="southend">South End</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-stone-600 mb-2">Price Range</label>
+                    <select class="w-full p-2 rounded-md border border-stone-200 focus:ring-stone-200">
+                        <option value="">All Prices</option>
+                        <option value="1">$ (Under $15)</option>
+                        <option value="2">$$ ($15-30)</option>
+                        <option value="3">$$$ ($31-50)</option>
+                        <option value="4">$$$$ (Over $50)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-stone-600 mb-2">Minimum Rating</label>
+                    <select class="w-full p-2 rounded-md border border-stone-200 focus:ring-stone-200">
+                        <option value="">Any Rating</option>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★☆</option>
+                        <option value="3">★★★☆☆</option>
+                    </select>
+                </div>
             </div>
 
             <div class="mt-4 flex justify-between items-center">
                 <div class="space-x-2">
-                    <button class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    <button class="bg-stone-100 text-stone-600 px-3 py-1 rounded-full text-sm hover:bg-stone-200">
                         Outdoor Seating ✕
                     </button>
-                    <button class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    <button class="bg-stone-100 text-stone-600 px-3 py-1 rounded-full text-sm hover:bg-stone-200">
                         Takes Reservations ✕
                     </button>
                 </div>
-                <button class="text-green-800 hover:text-gray-900">
+                <button class="text-stone-600 hover:text-stone-800">
                     Clear all filters
                 </button>
             </div>
         </div>
 
         <!-- Featured Reviews -->
-        <section class="grid md:grid-cols-2 gap-8">
-            <article class="bg-stone-200 p-6 rounded-lg shadow-lg">
-                <img src="images/restaurant1.jpg" alt="Restaurant interior" class="w-full h-48 object-cover rounded-lg mb-4">
-                <div class="flex justify-between items-start mb-2">
-                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">New Review</span>
-                    <span class="text-gray-900">$$ • Asian Fusion • Back Bay</span>
+        <section class="grid md:grid-cols-2 gap-8 mb-12">
+            <article class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="images/restaurant1.jpg" alt="Restaurant interior" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="bg-stone-100 text-stone-600 px-2 py-1 rounded text-sm">New Review</span>
+                        <span class="text-stone-600">$$ • Asian Fusion • Back Bay</span>
+                    </div>
+                    <h3 class="text-2xl font-serif text-stone-800 mt-2">Sprout & Root Kitchen</h3>
+                    <div class="flex items-center my-2">
+                        <span class="text-amber-400">★★★★★</span>
+                        <span class="ml-2 text-stone-600">(5/5)</span>
+                    </div>
+                    <p class="text-stone-600 mb-4">Located in the heart of Back Bay, this charming bistro offers innovative plant-based dishes that are 100% gluten-free. Their mushroom risotto is a must-try!</p>
+                    <a href="#" class="text-stone-600 hover:text-stone-800">Read full review →</a>
                 </div>
-                <h3 class="text-2xl font-serif mt-2">Sprout & Root Kitchen</h3>
-                <div class="flex items-center my-2">
-                    <span class="text-green-800">★★★★★</span>
-                    <span class="ml-2 text-gray-900">(5/5)</span>
-                </div>
-                <p class="text-gray-900 mb-4">Located in the heart of Back Bay, this charming bistro offers innovative plant-based dishes that are 100% gluten-free. Their mushroom risotto is a must-try!</p>
-                <a href="#" class="text-green-800 hover:text-gray-900">Read full review →</a>
             </article>
 
-            <!-- More reviews here -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="images/restaurant2.jpg" alt="Restaurant food" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="bg-stone-100 text-stone-600 px-2 py-1 rounded text-sm">Last Week</span>
+                        <span class="text-stone-600">$$$ • American • Cambridge</span>
+                    </div>
+                    <h3 class="text-2xl font-serif text-stone-800 mt-2">Green Garden Café</h3>
+                    <div class="flex items-center my-2">
+                        <span class="text-amber-400">★★★★☆</span>
+                        <span class="ml-2 text-stone-600">(4/5)</span>
+                    </div>
+                    <p class="text-stone-600 mb-4">A cozy spot in Cambridge serving healthy comfort food. Their quinoa bowl and sweet potato brownies are delightful discoveries for health-conscious foodies.</p>
+                    <a href="#" class="text-stone-600 hover:text-stone-800">Read full review →</a>
+                </div>
+            </article>
         </section>
-    </div>
 
-    <footer class="bg-stone-200 mt-12 py-8">
-        <div class="container mx-auto px-4">
+        <!-- Latest Reviews -->
+        <section>
+            <h2 class="text-3xl font-serif text-stone-800 mb-6">Latest Reviews</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-serif text-stone-800">Pure Plate</h3>
+                    <div class="text-stone-600 text-sm mb-2">$ • American • Somerville</div>
+                    <div class="text-amber-400">★★★★☆</div>
+                    <p class="text-stone-600 mt-2">Modern American cuisine with a healthy twist...</p>
+                </article>
+
+                <article class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-serif text-stone-800">Veggie Haven</h3>
+                    <div class="text-stone-600 text-sm mb-2">$$ • Mediterranean • South End</div>
+                    <div class="text-amber-400">★★★★★</div>
+                    <p class="text-stone-600 mt-2">Authentic Mediterranean fusion done right...</p>
+                </article>
+
+                <article class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-serif text-stone-800">Earth & Bowl</h3>
+                    <div class="text-stone-600 text-sm mb-2">$$ • Mexican • Seaport</div>
+                    <div class="text-amber-400">★★★★☆</div>
+                    <p class="text-stone-600 mt-2">Fresh ingredients in creative combinations...</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white mt-12 border-t border-stone-200">
+        <div class="container mx-auto px-4 py-8">
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
-                    <h4 class="font-serif text-xl mb-4">About Boston V&GF Eats</h4>
-                    <p class="text-gray-900">Dedicated to helping you find the best vegan and gluten-free dining experiences in Boston.</p>
+                    <h4 class="font-serif text-xl text-stone-800 mb-4">About Boston V&GF Eats</h4>
+                    <p class="text-stone-600">Dedicated to helping you find the best vegan and gluten-free dining experiences in Boston. We personally visit and review each restaurant to ensure accurate, up-to-date information for our community.</p>
                 </div>
                 <div>
-                    <h4 class="font-serif text-xl mb-4">Quick Links</h4>
+                    <h4 class="font-serif text-xl text-stone-800 mb-4">Quick Links</h4>
                     <div class="grid grid-cols-2 gap-4">
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-900 hover:text-green-800">Latest Reviews</a></li>
-                            <li><a href="#" class="text-gray-900 hover:text-green-800">Restaurant Map</a></li>
-                            <li><a href="#" class="text-gray-900 hover:text-green-800">Submit a Restaurant</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Latest Reviews</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Restaurant Map</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Submit a Restaurant</a></li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">About Us</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Contact</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 text-center text-gray-700">
+            <div class="mt-8 text-center text-stone-500">
                 <p>© 2024 Boston V&GF Eats. All rights reserved.</p>
             </div>
         </div>

@@ -7,4 +7,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* Add any additional custom styles here */
+/* Optional: Add smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
