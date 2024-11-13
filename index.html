@@ -19,10 +19,39 @@
         </div>
     </nav>
 
-    <header class="bg-[#dcd3c9] py-20">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-5xl md:text-6xl font-serif text-stone-800 mb-3">The Boston VEGF Guide</h2>
-            <p class="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto">Discovering the City's Best Vegan & Gluten-Free Dining</p>
+    <header class="relative overflow-hidden">
+        <!-- Background with overlay -->
+        <div class="absolute inset-0 header-pattern"></div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-10">
+            <div class="grid grid-cols-3 gap-8 transform -rotate-12 scale-150">
+                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.75a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5zM12 12.75c3 0 6-1.125 6-2.25s-3-2.25-6-2.25-6 1.125-6 2.25 3 2.25 6 2.25z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12.75v6"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 18.75c3 0 6-1.125 6-2.25v-6"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 16.5v-6"/>
+                </svg>
+                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 6.75h4.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-9a1.5 1.5 0 0 1 1.5-1.5H9m6-2.25L12 2.25 9 4.5m6 0L12 6.75 9 4.5m6 0h-6"/>
+                </svg>
+                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8.25c-3.314 0-6 2.886-6 6.444 0 3.56 2.686 6.444 6 6.444s6-2.884 6-6.444c0-3.558-2.686-6.444-6-6.444z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2.25c.592 0 1.072.467 1.072 1.042v1.042H12c-.592 0-1.072-.467-1.072-1.042V3.292c0-.575.48-1.042 1.072-1.042z"/>
+                </svg>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div class="relative container mx-auto text-center px-4 py-20">
+            <div class="bg-[#dcd3c9]/80 backdrop-blur-sm rounded-lg py-8 px-4 inline-block">
+                <h2 class="text-5xl md:text-6xl font-serif text-stone-800 mb-3">
+                    The Boston VEGF Guide
+                </h2>
+                <p class="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto">
+                    Discovering the City's Best Vegan & Gluten-Free Dining
+                </p>
+            </div>
         </div>
     </header>
 
