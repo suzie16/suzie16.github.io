@@ -72,42 +72,8 @@
         </div>
 
         <!-- Featured Reviews -->
-        <section class="grid md:grid-cols-2 gap-8">
-            <article class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://images.squarespace-cdn.com/content/v1/5c2d4900da02bc2455f424c9/1583121049122-GOCRKBLWQNWPMECL2361/UPP+The%2BStandard.png" 
-                alt="Union Park Pizza - The Standard Pizza" 
-                class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="bg-stone-100 text-stone-600 px-2 py-1 rounded text-sm">New Review</span>
-                        <span class="text-stone-600">$$ • Italian • South End</span>
-                    </div>
-                    <h3 class="text-2xl font-serif text-stone-800 mt-2">Union Park Pizza</h3>
-                    <div class="flex items-center my-2">
-                        <span class="text-amber-400">★★★★★</span>
-                        <span class="ml-2 text-stone-600">(5/5)</span>
-                    </div>
-                    <p class="text-stone-600 mb-4">A South End gem offering outstanding gluten-free and vegan pizzas. Their cauliflower crust and dairy-free cheese alternatives create authentic Italian flavors that everyone can enjoy.</p>
-                    <a href="review-union-park.html" class="text-stone-600 hover:text-stone-800">Read full review →</a>
-                </div>
-            </article>
-
-            <article class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="images/restaurant2.jpg" alt="Restaurant food" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="bg-stone-100 text-stone-600 px-2 py-1 rounded text-sm">Last Week</span>
-                        <span class="text-stone-600">$$$ • American • Cambridge</span>
-                    </div>
-                    <h3 class="text-2xl font-serif text-stone-800 mt-2">Green Garden Café</h3>
-                    <div class="flex items-center my-2">
-                        <span class="text-amber-400">★★★★☆</span>
-                        <span class="ml-2 text-stone-600">(4/5)</span>
-                    </div>
-                    <p class="text-stone-600 mb-4">A cozy spot in Cambridge serving healthy comfort food. Their quinoa bowl and sweet potato brownies are delightful discoveries for health-conscious foodies.</p>
-                    <a href="#" class="text-stone-600 hover:text-stone-800">Read full review →</a>
-                </div>
-            </article>
+        <section id="featuredReviews" class="grid md:grid-cols-2 gap-8">
+            <!-- Content will be dynamically inserted here -->
         </section>
     </main>
 
@@ -139,6 +105,52 @@
             </div>
         </div>
     </footer>
-<script src="search.js"></script>
+
+    <!-- Add this right before closing body tag -->
+    <script type="module">
+        import reviews from './reviews.js';
+        import { getFeaturedReviews } from './reviewUtils.js';
+
+        // Function to create a review card
+        function createReviewCard(review) {
+            return `
+                <article class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="${review.images.main}" 
+                        alt="${review.name}" 
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="bg-stone-100 text-stone-600 px-2 py-1 rounded text-sm">
+                                ${review.isNew ? 'New Review' : 'Last Week'}
+                            </span>
+                            <span class="text-stone-600">${review.priceRange} • ${review.cuisine} • ${review.area}</span>
+                        </div>
+                        <h3 class="text-2xl font-serif text-stone-800 mt-2">${review.name}</h3>
+                        <div class="flex items-center my-2">
+                            <span class="text-amber-400">${'★'.repeat(review.ratings.overall)}${'☆'.repeat(5-review.ratings.overall)}</span>
+                            <span class="ml-2 text-stone-600">(${review.ratings.overall}/5)</span>
+                        </div>
+                        <p class="text-stone-600 mb-4">${review.shortDescription}</p>
+                        <a href="review-${review.slug}.html" class="text-stone-600 hover:text-stone-800">Read full review →</a>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Function to initialize the page
+        function initializePage() {
+            const featuredReviews = getFeaturedReviews(2);
+            const featuredSection = document.getElementById('featuredReviews');
+            
+            // Populate featured reviews
+            featuredSection.innerHTML = featuredReviews
+                .map(review => createReviewCard(review))
+                .join('');
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+    <script type="module" src="search.js"></script>
 </body>
 </html>

@@ -1,37 +1,12 @@
-// Restaurant data array
-const restaurants = [
-    {
-        name: "Union Park Pizza",
-        cuisine: "Italian",
-        area: "South End",
-        tags: ["pizza", "gluten-free", "vegan"],
-        priceRange: "$$",
-        description: "A South End gem offering outstanding gluten-free and vegan pizzas.",
-        link: "review-union-park.html",
-        image: "https://images.squarespace-cdn.com/content/v1/5c2d4900da02bc2455f424c9/1583121049122-GOCRKBLWQNWPMECL2361/UPP+The%2BStandard.png",
-        rating: 5,
-        isNew: true
-    },
-    {
-        name: "Green Garden Café",
-        cuisine: "American",
-        area: "Cambridge",
-        tags: ["comfort food", "healthy", "gluten-free", "vegan"],
-        priceRange: "$$$",
-        description: "A cozy spot in Cambridge serving healthy comfort food.",
-        link: "#",
-        image: "images/restaurant2.jpg",
-        rating: 4,
-        isNew: false
-    }
-    // Add more restaurant data here
-];
+// search.js
+import reviews from './reviews.js';
+import { searchReviews, getFeaturedReviews } from './reviewUtils.js';
 
 // Function to create a restaurant card element
 function createRestaurantCard(restaurant) {
     return `
         <article class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="${restaurant.image}" 
+            <img src="${restaurant.images.main}" 
                 alt="${restaurant.name}" 
                 class="w-full h-48 object-cover">
             <div class="p-6">
@@ -43,28 +18,14 @@ function createRestaurantCard(restaurant) {
                 </div>
                 <h3 class="text-2xl font-serif text-stone-800 mt-2">${restaurant.name}</h3>
                 <div class="flex items-center my-2">
-                    <span class="text-amber-400">${'★'.repeat(restaurant.rating)}${'☆'.repeat(5-restaurant.rating)}</span>
-                    <span class="ml-2 text-stone-600">(${restaurant.rating}/5)</span>
+                    <span class="text-amber-400">${'★'.repeat(restaurant.ratings.overall)}${'☆'.repeat(5-restaurant.ratings.overall)}</span>
+                    <span class="ml-2 text-stone-600">(${restaurant.ratings.overall}/5)</span>
                 </div>
-                <p class="text-stone-600 mb-4">${restaurant.description}</p>
-                <a href="${restaurant.link}" class="text-stone-600 hover:text-stone-800">Read full review →</a>
+                <p class="text-stone-600 mb-4">${restaurant.shortDescription}</p>
+                <a href="review-${restaurant.slug}.html" class="text-stone-600 hover:text-stone-800">Read full review →</a>
             </div>
         </article>
     `;
-}
-
-// Function to filter restaurants based on search query
-function filterRestaurants(query) {
-    query = query.toLowerCase();
-    return restaurants.filter(restaurant => {
-        return (
-            restaurant.name.toLowerCase().includes(query) ||
-            restaurant.cuisine.toLowerCase().includes(query) ||
-            restaurant.area.toLowerCase().includes(query) ||
-            restaurant.description.toLowerCase().includes(query) ||
-            restaurant.tags.some(tag => tag.toLowerCase().includes(query))
-        );
-    });
 }
 
 // Function to update search results
@@ -80,7 +41,7 @@ function updateSearchResults(query) {
         return;
     }
 
-    const filteredRestaurants = filterRestaurants(query);
+    const filteredRestaurants = searchReviews(query);
     
     // Hide featured section and show results
     featuredSection.classList.add('hidden');
@@ -105,7 +66,7 @@ function updateSearchResults(query) {
     `;
 }
 
-// Initialize search functionality when the document is loaded
+// Initialize search functionality
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('input[type="text"]');
     const mainContent = document.querySelector('main');
@@ -122,6 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(debounceTimeout);
         debounceTimeout = setTimeout(() => {
             updateSearchResults(e.target.value);
-        }, 300); // Debounce for 300ms
+        }, 300);
     });
 });
