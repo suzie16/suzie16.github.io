@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Head section remains the same -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,74 +8,58 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-stone-50">
-    <!-- Navigation and Header sections remain the same -->
-    <nav class="bg-white shadow-sm">
-        <!-- Navigation content -->
-    </nav>
+    <!-- Rest of your HTML remains the same until the script section -->
 
-    <header class="relative overflow-hidden">
-        <!-- Header content -->
-    </header>
-
-    <main class="container mx-auto py-12 px-4">
-        <!-- Search Section -->
-        <div class="bg-white rounded-lg shadow-md mb-12">
-            <div class="p-6">
-                <div class="relative">
-                    <input type="text" 
-                           placeholder="Search restaurants, cuisines, or dishes..." 
-                           class="w-full p-4 pl-12 text-lg rounded-lg border border-stone-200 focus:ring-2 focus:ring-stone-200 focus:outline-none"
-                    >
-                    <svg class="w-6 h-6 text-stone-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Featured Reviews -->
-        <section id="featuredReviews" class="grid md:grid-cols-2 gap-8">
-            <!-- Content will be dynamically inserted here -->
-            <div id="loading" class="col-span-2 text-center py-8 text-stone-600">
-                Loading reviews...
-            </div>
-        </section>
-
-        <!-- Search Results Container -->
-        <div id="searchResults" class="hidden"></div>
-    </main>
-
-    <!-- Footer remains the same -->
-    <footer class="bg-white mt-12 border-t border-stone-200">
-        <!-- Footer content -->
-    </footer>
-
-    <!-- Initialize reviews -->
     <script>
-        // Global container for reviews data
-        window.reviewsData = {};
-    </script>
-
-    <!-- Load and display reviews -->
-    <script>
-        async function loadReviews() {
-            try {
-                const response = await fetch('reviews.js');
-                const text = await response.text();
-                // Remove "export default" and convert to valid JSON
-                const jsonText = text
-                    .replace('const reviews =', '')
-                    .replace('export default reviews;', '')
-                    .trim();
-                
-                window.reviewsData = JSON.parse(jsonText);
-                displayFeaturedReviews();
-            } catch (error) {
-                console.error('Error loading reviews:', error);
-                document.getElementById('loading').innerHTML = 'Error loading reviews. Please try again later.';
+        // Restaurant data directly in the page
+        const reviews = {
+            "union-park-pizza": {
+                id: "union-park-pizza",
+                name: "Union Park Pizza",
+                cuisine: "Italian",
+                area: "South End",
+                tags: ["pizza", "gluten-free", "vegan"],
+                priceRange: "$$",
+                shortDescription: "A South End gem offering outstanding gluten-free and vegan pizzas. Their cauliflower crust and dairy-free cheese alternatives create authentic Italian flavors that everyone can enjoy.",
+                ratings: {
+                    overall: 5,
+                    food: 5,
+                    service: 5,
+                    ambiance: 4,
+                    value: 5
+                },
+                images: {
+                    main: "https://images.squarespace-cdn.com/content/v1/5c2d4900da02bc2455f424c9/1583121049122-GOCRKBLWQNWPMECL2361/UPP+The%2BStandard.png"
+                },
+                dateAdded: "2024-03-15",
+                slug: "union-park-pizza",
+                isNew: true
+            },
+            "green-garden-cafe": {
+                id: "green-garden-cafe",
+                name: "Green Garden Café",
+                cuisine: "American",
+                area: "Cambridge",
+                tags: ["comfort food", "healthy", "gluten-free", "vegan"],
+                priceRange: "$$$",
+                shortDescription: "A cozy spot in Cambridge serving healthy comfort food. Their quinoa bowl and sweet potato brownies are delightful discoveries for health-conscious foodies.",
+                ratings: {
+                    overall: 4,
+                    food: 5,
+                    service: 4,
+                    ambiance: 4,
+                    value: 3
+                },
+                images: {
+                    main: "images/restaurant2.jpg"
+                },
+                dateAdded: "2024-03-10",
+                slug: "green-garden-cafe",
+                isNew: false
             }
-        }
+        };
 
+        // Function to create a review card
         function createReviewCard(review) {
             return `
                 <article class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -102,22 +85,20 @@
             `;
         }
 
+        // Function to display featured reviews
         function displayFeaturedReviews() {
             const featuredSection = document.getElementById('featuredReviews');
             const loading = document.getElementById('loading');
             
-            if (!window.reviewsData) {
-                loading.innerHTML = 'No reviews available.';
-                return;
-            }
-
             // Get featured reviews (most recent 2)
-            const featuredReviews = Object.values(window.reviewsData)
+            const featuredReviews = Object.values(reviews)
                 .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
                 .slice(0, 2);
 
             // Remove loading message
-            loading.remove();
+            if (loading) {
+                loading.remove();
+            }
 
             // Display reviews
             featuredSection.innerHTML = featuredReviews
@@ -125,54 +106,63 @@
                 .join('');
         }
 
-        // Load reviews when the page loads
-        document.addEventListener('DOMContentLoaded', loadReviews);
-    </script>
-
-    <!-- Search functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.querySelector('input[type="text"]');
+        // Function to handle search
+        function handleSearch(query) {
             const featuredSection = document.getElementById('featuredReviews');
             const searchResults = document.getElementById('searchResults');
+            
+            query = query.toLowerCase();
 
-            searchInput.addEventListener('input', function(e) {
-                const query = e.target.value.toLowerCase();
-                
-                if (!query) {
-                    featuredSection.classList.remove('hidden');
-                    searchResults.classList.add('hidden');
-                    return;
-                }
+            if (!query) {
+                featuredSection.classList.remove('hidden');
+                searchResults.classList.add('hidden');
+                return;
+            }
 
-                const filteredReviews = Object.values(window.reviewsData).filter(review => 
-                    review.name.toLowerCase().includes(query) ||
-                    review.cuisine.toLowerCase().includes(query) ||
-                    review.area.toLowerCase().includes(query) ||
-                    review.shortDescription.toLowerCase().includes(query) ||
-                    review.tags.some(tag => tag.toLowerCase().includes(query))
-                );
+            const filteredReviews = Object.values(reviews).filter(review => 
+                review.name.toLowerCase().includes(query) ||
+                review.cuisine.toLowerCase().includes(query) ||
+                review.area.toLowerCase().includes(query) ||
+                review.shortDescription.toLowerCase().includes(query) ||
+                review.tags.some(tag => tag.toLowerCase().includes(query))
+            );
 
-                featuredSection.classList.add('hidden');
-                searchResults.classList.remove('hidden');
+            featuredSection.classList.add('hidden');
+            searchResults.classList.remove('hidden');
 
-                if (filteredReviews.length === 0) {
-                    searchResults.innerHTML = `
-                        <div class="text-center py-8 text-stone-600">
-                            No restaurants found matching "${query}". Try a different search term.
-                        </div>
-                    `;
-                    return;
-                }
-
+            if (filteredReviews.length === 0) {
                 searchResults.innerHTML = `
-                    <div class="mb-4 text-stone-600">
-                        Found ${filteredReviews.length} restaurant${filteredReviews.length === 1 ? '' : 's'}
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        ${filteredReviews.map(review => createReviewCard(review)).join('')}
+                    <div class="text-center py-8 text-stone-600">
+                        No restaurants found matching "${query}". Try a different search term.
                     </div>
                 `;
+                return;
+            }
+
+            searchResults.innerHTML = `
+                <div class="mb-4 text-stone-600">
+                    Found ${filteredReviews.length} restaurant${filteredReviews.length === 1 ? '' : 's'}
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    ${filteredReviews.map(review => createReviewCard(review)).join('')}
+                </div>
+            `;
+        }
+
+        // Initialize when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Display featured reviews
+            displayFeaturedReviews();
+
+            // Setup search
+            const searchInput = document.querySelector('input[type="text"]');
+            let debounceTimeout;
+
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(debounceTimeout);
+                debounceTimeout = setTimeout(() => {
+                    handleSearch(e.target.value);
+                }, 300);
             });
         });
     </script>
