@@ -4,11 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Boston VEGF Guide - Vegan & Gluten-Free Restaurant Reviews</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <!-- Updated Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Using relative path for styles.css -->
+    <link href="./styles.css" rel="stylesheet">
 </head>
 <body class="bg-stone-50">
-    <!-- Rest of your HTML remains the same until the script section -->
+    <nav class="bg-white shadow-sm">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-serif text-stone-800">The Boston VEGF Guide</h1>
+            <div class="space-x-6">
+                <a href="#" class="text-stone-600 hover:text-stone-900">Home</a>
+                <a href="reviews.html" class="text-stone-600 hover:text-stone-900">Reviews</a>
+                <a href="about.html" class="text-stone-600 hover:text-stone-900">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden">
+        <!-- Background with overlay -->
+        <div class="absolute inset-0 header-pattern"></div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-10">
+            <div class="grid grid-cols-3 gap-8 transform -rotate-12 scale-150">
+                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.75a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5zM12 12.75c3 0 6-1.125 6-2.25s-3-2.25-6-2.25-6 1.125-6 2.25 3 2.25 6 2.25z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12.75v6"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 18.75c3 0 6-1.125 6-2.25v-6"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 16.5v-6"/>
+                </svg>
+                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 6.75h4.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-9a1.5 1.5 0 0 1 1.5-1.5H9m6-2.25L12 2.25 9 4.5m6 0L12 6.75 9 4.5m6 0h-6"/>
+                </svg>
+                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8.25c-3.314 0-6 2.886-6 6.444 0 3.56 2.686 6.444 6 6.444s6-2.884 6-6.444c0-3.558-2.686-6.444-6-6.444z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2.25c.592 0 1.072.467 1.072 1.042v1.042H12c-.592 0-1.072-.467-1.072-1.042V3.292c0-.575.48-1.042 1.072-1.042z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative container mx-auto text-center px-4 py-20">
+            <div class="bg-[#dcd3c9]/80 backdrop-blur-sm rounded-lg py-8 px-4 inline-block">
+                <h2 class="text-5xl md:text-6xl font-serif text-stone-800 mb-3">
+                    The Boston VEGF Guide
+                </h2>
+                <p class="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto">
+                    Discovering the City's Best Vegan & Gluten-Free Dining
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+        <!-- Search Section -->
+        <div class="bg-white rounded-lg shadow-md mb-12">
+            <div class="p-6">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search restaurants, cuisines, or dishes..." 
+                           class="w-full p-4 pl-12 text-lg rounded-lg border border-stone-200 focus:ring-2 focus:ring-stone-200 focus:outline-none"
+                    >
+                    <svg class="w-6 h-6 text-stone-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Reviews -->
+        <section id="featuredReviews" class="grid md:grid-cols-2 gap-8">
+            <div id="loading" class="col-span-2 text-center py-8 text-stone-600">
+                Loading reviews...
+            </div>
+        </section>
+
+        <!-- Search Results Container -->
+        <div id="searchResults" class="hidden"></div>
+    </main>
+
+    <footer class="bg-white mt-12 border-t border-stone-200">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-serif text-xl text-stone-800 mb-4">About The Boston VEGF Guide</h4>
+                    <p class="text-stone-600">Dedicated to helping you find the best vegan and gluten-free dining experiences in Boston. We personally visit and review each restaurant to ensure accurate, up-to-date information for our community.</p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl text-stone-800 mb-4">Quick Links</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Latest Reviews</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Restaurant Map</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Submit a Restaurant</a></li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">About Us</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Contact</a></li>
+                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-stone-500">
+                <p>© 2024 The Boston VEGF Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Restaurant data directly in the page
@@ -51,7 +154,7 @@
                     value: 3
                 },
                 images: {
-                    main: "images/restaurant2.jpg"
+                    main: "./images/restaurant2.jpg"
                 },
                 dateAdded: "2024-03-10",
                 slug: "green-garden-cafe",
