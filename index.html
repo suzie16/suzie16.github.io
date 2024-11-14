@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head section remains the same -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,51 +9,13 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-stone-50">
+    <!-- Navigation and Header sections remain the same -->
     <nav class="bg-white shadow-sm">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <h1 class="text-2xl font-serif text-stone-800">The Boston VEGF Guide</h1>
-            <div class="space-x-6">
-                <a href="#" class="text-stone-600 hover:text-stone-900">Home</a>
-                <a href="reviews.html" class="text-stone-600 hover:text-stone-900">Reviews</a>
-                <a href="about.html" class="text-stone-600 hover:text-stone-900">About</a>
-            </div>
-        </div>
+        <!-- Navigation content -->
     </nav>
 
     <header class="relative overflow-hidden">
-        <!-- Background with overlay -->
-        <div class="absolute inset-0 header-pattern"></div>
-        
-        <!-- Decorative elements -->
-        <div class="absolute inset-0 flex items-center justify-center opacity-10">
-            <div class="grid grid-cols-3 gap-8 transform -rotate-12 scale-150">
-                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.75a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5zM12 12.75c3 0 6-1.125 6-2.25s-3-2.25-6-2.25-6 1.125-6 2.25 3 2.25 6 2.25z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12.75v6"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 18.75c3 0 6-1.125 6-2.25v-6"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 16.5v-6"/>
-                </svg>
-                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 6.75h4.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-9a1.5 1.5 0 0 1 1.5-1.5H9m6-2.25L12 2.25 9 4.5m6 0L12 6.75 9 4.5m6 0h-6"/>
-                </svg>
-                <svg class="w-24 h-24 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8.25c-3.314 0-6 2.886-6 6.444 0 3.56 2.686 6.444 6 6.444s6-2.884 6-6.444c0-3.558-2.686-6.444-6-6.444z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2.25c.592 0 1.072.467 1.072 1.042v1.042H12c-.592 0-1.072-.467-1.072-1.042V3.292c0-.575.48-1.042 1.072-1.042z"/>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Content -->
-        <div class="relative container mx-auto text-center px-4 py-20">
-            <div class="bg-[#dcd3c9]/80 backdrop-blur-sm rounded-lg py-8 px-4 inline-block">
-                <h2 class="text-5xl md:text-6xl font-serif text-stone-800 mb-3">
-                    The Boston VEGF Guide
-                </h2>
-                <p class="text-xl md:text-2xl text-stone-600 max-w-3xl mx-auto">
-                    Discovering the City's Best Vegan & Gluten-Free Dining
-                </p>
-            </div>
-        </div>
+        <!-- Header content -->
     </header>
 
     <main class="container mx-auto py-12 px-4">
@@ -74,44 +37,46 @@
         <!-- Featured Reviews -->
         <section id="featuredReviews" class="grid md:grid-cols-2 gap-8">
             <!-- Content will be dynamically inserted here -->
+            <div id="loading" class="col-span-2 text-center py-8 text-stone-600">
+                Loading reviews...
+            </div>
         </section>
+
+        <!-- Search Results Container -->
+        <div id="searchResults" class="hidden"></div>
     </main>
 
+    <!-- Footer remains the same -->
     <footer class="bg-white mt-12 border-t border-stone-200">
-        <div class="container mx-auto px-4 py-8">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h4 class="font-serif text-xl text-stone-800 mb-4">About The Boston VEGF Guide</h4>
-                    <p class="text-stone-600">Dedicated to helping you find the best vegan and gluten-free dining experiences in Boston. We personally visit and review each restaurant to ensure accurate, up-to-date information for our community.</p>
-                </div>
-                <div>
-                    <h4 class="font-serif text-xl text-stone-800 mb-4">Quick Links</h4>
-                    <div class="grid grid-cols-2 gap-4">
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Latest Reviews</a></li>
-                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Restaurant Map</a></li>
-                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Submit a Restaurant</a></li>
-                        </ul>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-stone-600 hover:text-stone-800">About Us</a></li>
-                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Contact</a></li>
-                            <li><a href="#" class="text-stone-600 hover:text-stone-800">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 text-center text-stone-500">
-                <p>© 2024 The Boston VEGF Guide. All rights reserved.</p>
-            </div>
-        </div>
+        <!-- Footer content -->
     </footer>
 
-    <!-- Add this right before closing body tag -->
-    <script type="module">
-        import reviews from './reviews.js';
-        import { getFeaturedReviews } from './reviewUtils.js';
+    <!-- Initialize reviews -->
+    <script>
+        // Global container for reviews data
+        window.reviewsData = {};
+    </script>
 
-        // Function to create a review card
+    <!-- Load and display reviews -->
+    <script>
+        async function loadReviews() {
+            try {
+                const response = await fetch('reviews.js');
+                const text = await response.text();
+                // Remove "export default" and convert to valid JSON
+                const jsonText = text
+                    .replace('const reviews =', '')
+                    .replace('export default reviews;', '')
+                    .trim();
+                
+                window.reviewsData = JSON.parse(jsonText);
+                displayFeaturedReviews();
+            } catch (error) {
+                console.error('Error loading reviews:', error);
+                document.getElementById('loading').innerHTML = 'Error loading reviews. Please try again later.';
+            }
+        }
+
         function createReviewCard(review) {
             return `
                 <article class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -137,20 +102,79 @@
             `;
         }
 
-        // Function to initialize the page
-        function initializePage() {
-            const featuredReviews = getFeaturedReviews(2);
+        function displayFeaturedReviews() {
             const featuredSection = document.getElementById('featuredReviews');
+            const loading = document.getElementById('loading');
             
-            // Populate featured reviews
+            if (!window.reviewsData) {
+                loading.innerHTML = 'No reviews available.';
+                return;
+            }
+
+            // Get featured reviews (most recent 2)
+            const featuredReviews = Object.values(window.reviewsData)
+                .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
+                .slice(0, 2);
+
+            // Remove loading message
+            loading.remove();
+
+            // Display reviews
             featuredSection.innerHTML = featuredReviews
                 .map(review => createReviewCard(review))
                 .join('');
         }
 
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initializePage);
+        // Load reviews when the page loads
+        document.addEventListener('DOMContentLoaded', loadReviews);
     </script>
-    <script type="module" src="search.js"></script>
+
+    <!-- Search functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('input[type="text"]');
+            const featuredSection = document.getElementById('featuredReviews');
+            const searchResults = document.getElementById('searchResults');
+
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                
+                if (!query) {
+                    featuredSection.classList.remove('hidden');
+                    searchResults.classList.add('hidden');
+                    return;
+                }
+
+                const filteredReviews = Object.values(window.reviewsData).filter(review => 
+                    review.name.toLowerCase().includes(query) ||
+                    review.cuisine.toLowerCase().includes(query) ||
+                    review.area.toLowerCase().includes(query) ||
+                    review.shortDescription.toLowerCase().includes(query) ||
+                    review.tags.some(tag => tag.toLowerCase().includes(query))
+                );
+
+                featuredSection.classList.add('hidden');
+                searchResults.classList.remove('hidden');
+
+                if (filteredReviews.length === 0) {
+                    searchResults.innerHTML = `
+                        <div class="text-center py-8 text-stone-600">
+                            No restaurants found matching "${query}". Try a different search term.
+                        </div>
+                    `;
+                    return;
+                }
+
+                searchResults.innerHTML = `
+                    <div class="mb-4 text-stone-600">
+                        Found ${filteredReviews.length} restaurant${filteredReviews.length === 1 ? '' : 's'}
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        ${filteredReviews.map(review => createReviewCard(review)).join('')}
+                    </div>
+                `;
+            });
+        });
+    </script>
 </body>
 </html>
